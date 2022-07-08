@@ -1,14 +1,7 @@
-import 'dart:io';
-
-import 'package:ambulant/constant/constant.dart';
-import 'package:ambulant/providers/check_connection_provider.dart';
 import 'package:ambulant/screens/login_signup/login_widget/logic.dart';
-import 'package:ambulant/utilities/navigation/navigate_screens.dart';
 import 'package:ambulant/widgets/text_form_fields/pwd_form_field_request_widget.dart';
 import 'package:ambulant/widgets/text_form_fields/text_form_field_request_widget.dart';
-import 'package:ambulant/providers/login_signup/login_user_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 class LoginWidget extends StatefulWidget {
   final TextEditingController nameController;
@@ -24,11 +17,6 @@ class LoginWidget extends StatefulWidget {
 
 class _LoginWidget extends State<LoginWidget> {
   final LoginLogic logic = LoginLogic();
-  // final LoginUserProvider loginUserProvider = LoginUserProvider();
-  // final CheckConnectionProvider checkConnectionProvider = CheckConnectionProvider();
-  // final Navigation navigation = Navigation();
-  //
-  // int response = 0;
 
   @override
   void initState() {
@@ -104,67 +92,6 @@ class _LoginWidget extends State<LoginWidget> {
       ],
     );
   }
-
-  // _userValidation() async {
-  //   try {
-  //     http.Response validationResponse = await loginUserProvider.AuthenticateAPI(
-  //         widget.nameController.text.toString(),
-  //         widget.pswController.text.toString()
-  //     );
-  //
-  //     if (validationResponse.statusCode == 200) {
-  //       navigation.NavigateLocalTypePage(context);
-  //     } else {
-  //       setState(() {
-  //         response = validationResponse.statusCode;
-  //       });
-  //     }
-  //   } on SocketException {
-  //     print('No Internet connection 😑');
-  //     setState(() {
-  //       response = 600;
-  //     });
-  //   } on HttpException {
-  //     print("Couldn't find the post 😱");
-  //     setState(() {
-  //       response = 601;
-  //     });
-  //   } on FormatException {
-  //     print("Bad response format 👎");
-  //     setState(() {
-  //       response = 602;
-  //     });
-  //   }
-  // }
-  //
-  // _returnVerificationMessage() {
-  //   String text;
-  //   if (response == 0) {
-  //     text = '';
-  //   } else if (response == 0) {
-  //     text = 'Incorrect user or password';
-  //   } else if (response == 600) {
-  //     text = 'No internet connection available';
-  //   } else if (response == 601) {
-  //     text = 'Could not find the server';
-  //   } else if (response == 602) {
-  //     text = 'Wrong format';
-  //   } else {
-  //     text = 'An error occurred';
-  //   }
-  //
-  //   setState(() {
-  //     text;
-  //   });
-  //
-  //   return Text(
-  //     text,
-  //     style: TextStyle(
-  //       fontWeight: FontWeight.normal,
-  //       color: Colors.white,
-  //     ),
-  //   );
-  // }
 
   NotifyParent(var content) {
     setState(() {

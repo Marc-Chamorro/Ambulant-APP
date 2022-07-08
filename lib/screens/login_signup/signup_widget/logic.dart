@@ -1,27 +1,29 @@
 import 'dart:io';
 
 import 'package:ambulant/constant/constant.dart';
+import 'package:ambulant/providers/login_signup/signup_user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:ambulant/providers/login_signup/login_user_provider.dart';
+
 import 'package:ambulant/utilities/navigation/navigate_screens.dart';
 
-class LoginLogic {
-  final LoginUserProvider loginUserProvider = LoginUserProvider();
+class SignupLogic {
+  final SignupUserProvider signupUserProvider = SignupUserProvider();
   final Navigation navigation = Navigation();
 
   int response = 0;
 
-  UserValidation(Function refresh, BuildContext context, String name, String password) async {
+  UserCreation(Function refresh, BuildContext context, String name,
+      String email, String password) async {
     try {
-      http.Response validationResponse = await loginUserProvider.AuthenticateAPI(
-          name,
-          password
-      );
+      http.Response validationResponse =
+          await signupUserProvider.AuthenticateAPI(name, email, password);
 
-      if (validationResponse.statusCode == 200) {
+      if (validationResponse.statusCode == 200 && validationResponse.body == "true") {
         response = validationResponse.statusCode;
         navigation.NavigateLocalTypePage(context);
+      } else if (validationResponse.statusCode == 200 && validationResponse.body != "true") {
+        print("Execute order 66");
       } else {
         refresh(response = validationResponse.statusCode);
       }

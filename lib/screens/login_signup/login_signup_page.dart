@@ -5,6 +5,7 @@ import 'package:ambulant/constant/constant.dart';
 import 'package:ambulant/screens/login_signup/login_widget/login_widget.dart';
 import 'package:ambulant/widgets/title_&_logo/title_and_logo_widget.dart';
 import 'package:ambulant/screens/login_signup/login_signup_buttons_widget/login_signup_buttons_widget.dart';
+import 'package:ambulant/screens/login_signup/signup_widget/signup_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -18,13 +19,14 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPage extends State<LoginPage> {
   bool singIn = true;
-  late TextEditingController nameController, pswController;
+  late TextEditingController nameController, pswController, mailController;
 
   @override
   void initState() {
     super.initState();
     nameController = TextEditingController();
     pswController = TextEditingController();
+    mailController = TextEditingController();
   }
 
   @override
@@ -80,17 +82,10 @@ class _LoginPage extends State<LoginPage> {
         pswController: pswController,
       );
     } else {
-      return Container(
-        decoration: BoxDecoration(color: ConstantColors.transparent),
-        height: MediaQuery.of(context).size.height * 0.66,
-        width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.fromLTRB(15, 20, 15, 0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text("Test"),
-          ],
-        ),
+      return SignupWidget(
+        nameController: nameController,
+        pswController: pswController,
+        mailController: mailController
       );
     }
   }

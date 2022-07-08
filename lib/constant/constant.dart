@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class ConstantAPIPaths {
   //root
   static String root = "http://ambulantapi.ddns.net:8082/api/";
-  //echoping
+  //login-echoping
   static String loginEchoPing = "login/echoping";
-  //authenticate
+  //login-authenticate
   static String loginAuthenticate = "login/authenticate";
+  //user-add
+  static String userAdd = "user/add";
 }
 
 class ConstantColors {
