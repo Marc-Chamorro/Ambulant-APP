@@ -12,18 +12,18 @@ class SignupLogic {
   final Navigation navigation = Navigation();
 
   int response = 0;
+  String text = "";
+  late http.Response validationResponse;
 
   UserCreation(Function refresh, BuildContext context, String name,
       String email, String password) async {
     try {
-      http.Response validationResponse =
+      validationResponse =
           await signupUserProvider.AuthenticateAPI(name, email, password);
 
-      if (validationResponse.statusCode == 200 && validationResponse.body == "true") {
+      if (validationResponse.statusCode == 200) {
         response = validationResponse.statusCode;
         navigation.NavigateLocalTypePage(context);
-      } else if (validationResponse.statusCode == 200 && validationResponse.body != "true") {
-        print("Execute order 66");
       } else {
         refresh(response = validationResponse.statusCode);
       }
@@ -40,11 +40,9 @@ class SignupLogic {
   }
 
   ReturnVerificationMessage(Function refresh) {
-    String text;
+
     if (response == 200 || response == 0) {
       text = '';
-    } else if (response == 500 || response == 401) {
-      text = 'Incorrect user or password';
     } else if (response == 600) {
       text = 'No internet connection available';
     } else if (response == 601) {
@@ -52,7 +50,11 @@ class SignupLogic {
     } else if (response == 602) {
       text = 'Wrong format';
     } else {
-      text = 'An error occurred';
+      try {
+        text = validationResponse.body.replaceAll('"', "");
+      } on Exception {
+        text = 'An error occurred';
+      }
     }
 
     refresh(text);
