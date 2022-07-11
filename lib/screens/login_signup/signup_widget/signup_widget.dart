@@ -97,12 +97,12 @@ class _SignupWidget extends State<SignupWidget> {
             ),
           ),
         ),
-        // Padding(
-        //   padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-        //   child: logic.ReturnVerificationMessage(
-        //       NotifyParent
-        //   ),
-        // ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+          child: logic.ReturnVerificationMessage(
+              NotifyParent
+          ),
+        ),
       ],
     );
   }
