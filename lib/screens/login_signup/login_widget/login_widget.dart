@@ -1,3 +1,4 @@
+import 'package:ambulant/constant/constant.dart';
 import 'package:ambulant/screens/login_signup/login_widget/logic.dart';
 import 'package:ambulant/widgets/text_form_fields/pwd_form_field_request_widget.dart';
 import 'package:ambulant/widgets/text_form_fields/text_form_field_request_widget.dart';
@@ -61,14 +62,9 @@ class _LoginWidget extends State<LoginWidget> {
                     widget.pswController.text.toString()
                 );
               },
-              child: const Text(
+              child: Text(
                 'Login',
-                style: TextStyle(
-                  fontFamily: 'Lexend Deca',
-                  color: Color(0xFF010101),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: ConstantTextStyles.buttonLoginSignup,
               ),
               style: TextButton.styleFrom(
                   elevation: 3,

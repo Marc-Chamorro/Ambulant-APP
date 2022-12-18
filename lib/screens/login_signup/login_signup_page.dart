@@ -37,11 +37,11 @@ class _LoginPage extends State<LoginPage> {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
             gradient: LinearGradient(
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
-          colors: [Color(0xFFFFEE32), Color(0xFFFFB300)],
+          colors: [ConstantColors.backgroundYellow, ConstantColors.backgroundOrange],
           stops: [
             0,
             0.45,

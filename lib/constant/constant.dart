@@ -23,6 +23,9 @@ class ConstantColors {
   //separators
   static Color separatorsColorSelected = Colors.white;
   static Color separatorsColorNotSelected = const Color(0xFF252427);
+  //main colors
+  static Color backgroundYellow = const Color(0xFFFFEE32);
+  static Color backgroundOrange = const Color(0xFFFFB300);
 }
 
 class ConstantTextStyles {
@@ -33,6 +36,7 @@ class ConstantTextStyles {
     fontSize: 32,
     fontWeight: FontWeight.bold,
   );
+
   //labels
   static TextStyle labelGreyStyle = const TextStyle(
     fontFamily: 'Lexend Deca',
@@ -47,6 +51,7 @@ class ConstantTextStyles {
     fontSize: 14,
     fontWeight: FontWeight.normal,
   );
+
   //labels with height
   static TextStyle labelGreyHeightStyle = const TextStyle(
     fontFamily: 'Lexend Deca',
@@ -54,6 +59,14 @@ class ConstantTextStyles {
     fontSize: 14,
     fontWeight: FontWeight.normal,
     height: 5
+  );
+
+  //cards
+  static TextStyle buttonLoginSignup = const TextStyle(
+    fontFamily: 'Lexend Deca',
+    color: Color(0xFF010101),
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
   );
 }
 

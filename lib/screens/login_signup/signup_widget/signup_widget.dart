@@ -1,8 +1,8 @@
+import 'package:ambulant/constant/constant.dart';
 import 'package:ambulant/screens/login_signup/signup_widget/logic.dart';
 import 'package:ambulant/widgets/text_form_fields/pwd_form_field_request_widget.dart';
 import 'package:ambulant/widgets/text_form_fields/text_form_field_request_widget.dart';
 import 'package:flutter/material.dart';
-
 
 class SignupWidget extends StatefulWidget {
   final TextEditingController nameController;
@@ -75,14 +75,9 @@ class _SignupWidget extends State<SignupWidget> {
                     widget.pswController.text.toString()
                 );
               },
-              child: const Text(
+              child: Text(
                 'Sign up',
-                style: TextStyle(
-                  fontFamily: 'Lexend Deca',
-                  color: Color(0xFF010101),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: ConstantTextStyles.buttonLoginSignup,
               ),
               style: TextButton.styleFrom(
                   elevation: 3,
